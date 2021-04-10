@@ -13,5 +13,7 @@
     <string name="menu_list">List</string>
 
 
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis odio eu hendrerit commodo. Cras dapibus diam id ultrices tristique. Morbi ornare at nulla vel finibus. Suspendisse blandit tempor tincidunt.
+        Quisque leo diam, pulvinar non urna ut, auctor elementum tortor. Phasellus posuere leo urna, non dictum quam hendrerit et.</string>
     <string name="Squishy_Roll">Squishy Roll</string>
 </resources>
