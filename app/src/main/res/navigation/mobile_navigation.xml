@@ -25,12 +25,12 @@
         tools:layout="@layout/fragment_review" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.squishyrollremake.SearchFragment"
+        android:name="com.example.squishyrollremake.Fragments.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/createUpdateFragment"
-        android:name="com.example.squishyrollremake.CreateUpdateFragment"
-        android:label="fragment_create_update"
+        android:name="com.example.squishyrollremake.Fragments.CreateUpdateFragment"
+        android:label="Review"
         tools:layout="@layout/fragment_create_update" />
 </navigation>

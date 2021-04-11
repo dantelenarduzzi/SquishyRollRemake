@@ -1,4 +1,4 @@
-package com.example.squishyrollremake;
+package com.example.squishyrollremake.Fragments;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.squishyrollremake.Database.AnimeDatabase;
+import com.example.squishyrollremake.R;
 import com.example.squishyrollremake.pojo.Anime;
 
 
@@ -24,9 +25,9 @@ public class SearchFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         EditText name = view.findViewById(R.id.AnimeName );
-        Button submit = view.findViewById(R.id.submitButton);
+        Button search = view.findViewById(R.id.searchButton);
 
-        submit.setOnClickListener(new View.OnClickListener() {
+        search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 anime.setTitles(name.getText().toString());

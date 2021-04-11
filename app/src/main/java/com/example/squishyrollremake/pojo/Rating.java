@@ -5,6 +5,9 @@ import android.os.Parcelable;
 
 public class Rating implements Parcelable {
 
+
+    // Reason for this second database is so that the data from the users ratings is stored separately
+
     private String Name;
     private String Description;
     private int id;
@@ -25,6 +28,10 @@ public class Rating implements Parcelable {
         Name = in.readString();
         Description = in.readString();
         id = in.readInt();
+    }
+
+    public Rating() {
+
     }
 
 

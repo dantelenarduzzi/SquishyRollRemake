@@ -3,6 +3,7 @@ package com.example.squishyrollremake;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,11 @@ import android.view.ViewGroup;
 
 import com.example.squishyrollremake.Database.AnimeDatabase;
 import com.example.squishyrollremake.Database.RatingDatabase;
+import com.example.squishyrollremake.Fragments.CreateUpdateFragment;
 import com.example.squishyrollremake.pojo.Anime;
 import com.example.squishyrollremake.pojo.Rating;
 
+import static com.example.squishyrollremake.MainActivity.fab;
 import java.util.ArrayList;
 
 /**
@@ -68,6 +71,18 @@ public class ReviewFragment extends Fragment {
         // Inflate the layout for this fragment
       View view = inflater.inflate(R.layout.fragment_review, container, false);
 
+        fab.show();
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle extra = new Bundle();
+                extra.putInt(CreateUpdateFragment.ACTION_TYPE,
+                        CreateUpdateFragment.CREATE);
+                Navigation.findNavController(view)
+                        .navigate(R.id.createUpdateFragment, extra);
+            }
+
+        });
 
         ArrayList<Rating> Ratings = new ArrayList<>();
         RatingDatabase db = new RatingDatabase(getContext());
