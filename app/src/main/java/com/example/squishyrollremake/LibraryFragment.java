@@ -8,6 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.squishyrollremake.Database.AnimeDatabase;
+import com.example.squishyrollremake.pojo.Anime;
+
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link LibraryFragment#newInstance} factory method to
@@ -59,6 +64,11 @@ public class LibraryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_library, container, false);
+        View view = inflater.inflate(R.layout.fragment_library, container, false);
+        ArrayList<Anime> animes = new ArrayList<>();
+        AnimeDatabase db = new AnimeDatabase(getContext());
+        db.addAnime(new Anime("Cowboy Bepop","","In the year 2071, humanity has colonoized several of the planets and moons...\n"));
+        db.close();
+        return view;
     }
 }
