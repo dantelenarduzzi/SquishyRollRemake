@@ -8,6 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.squishyrollremake.Database.AnimeDatabase;
+import com.example.squishyrollremake.Database.RatingDatabase;
+import com.example.squishyrollremake.pojo.Anime;
+import com.example.squishyrollremake.pojo.Rating;
+
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ReviewFragment#newInstance} factory method to
@@ -59,6 +66,14 @@ public class ReviewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_review, container, false);
+      View view = inflater.inflate(R.layout.fragment_review, container, false);
+
+
+        ArrayList<Rating> Ratings = new ArrayList<>();
+        RatingDatabase db = new RatingDatabase(getContext());
+        db.addRating(new Rating("Attack on titan","In the year 2071, humanity has colonoized several of the planets and moons...\n"));
+        db.close();
+        return view;
+
     }
 }

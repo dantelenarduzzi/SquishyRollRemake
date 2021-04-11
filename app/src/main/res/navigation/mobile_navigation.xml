@@ -28,4 +28,9 @@
         android:name="com.example.squishyrollremake.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/createUpdateFragment"
+        android:name="com.example.squishyrollremake.CreateUpdateFragment"
+        android:label="fragment_create_update"
+        tools:layout="@layout/fragment_create_update" />
 </navigation>
