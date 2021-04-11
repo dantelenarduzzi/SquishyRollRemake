@@ -3,6 +3,7 @@ package com.example.squishyrollremake;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.example.squishyrollremake.pojo.Anime;
 
 import java.util.ArrayList;
 
+import static com.example.squishyrollremake.MainActivity.fab;
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link LibraryFragment#newInstance} factory method to
@@ -63,8 +65,19 @@ public class LibraryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_library, container, false);
+        fab.show();
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle extra = new Bundle();
+                Navigation.findNavController(view)
+                        .navigate(R.id.searchFragment, extra);
+            }
+
+        });
+
+
         ArrayList<Anime> animes = new ArrayList<>();
         AnimeDatabase db = new AnimeDatabase(getContext());
         db.addAnime(new Anime("Cowboy Bepop","","In the year 2071, humanity has colonoized several of the planets and moons...\n"));
