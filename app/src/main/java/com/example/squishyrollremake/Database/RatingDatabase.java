@@ -17,7 +17,7 @@ public class RatingDatabase extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Rating";
 
-    public static final String TABLE_RATING = "rating";
+    public static final String TABLE_REVIEW = "review";
 
     public static final String COLUMN_ID = "id";
 
@@ -25,8 +25,8 @@ public class RatingDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_DESC = "synopsis"; // description
 
 
-    public static final String CREATE_Rating_TABLE = "CREATE TABLE " +
-            TABLE_RATING + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
+    public static final String CREATE_RATING_TABLE = "CREATE TABLE " +
+            TABLE_REVIEW + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
             COLUMN_NAME + " TEXT, " + COLUMN_DESC +" TEXT)";
 
     public RatingDatabase(@Nullable Context context) {
@@ -35,6 +35,7 @@ public class RatingDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CREATE_RATING_TABLE);
     }
 
     @Override
@@ -47,14 +48,14 @@ public class RatingDatabase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, Rating.getName());
         values.put(COLUMN_DESC, Rating.getDescription());
-        db.insert(TABLE_RATING, null, values);
+        db.insert(TABLE_REVIEW, null, values);
         db.close();
     }
 
     public Rating getRating(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Rating Rating = null;
-        Cursor cursor = db.query(TABLE_RATING,
+        Cursor cursor = db.query(TABLE_REVIEW,
                 new String[]{COLUMN_ID, COLUMN_NAME, COLUMN_DESC, }, COLUMN_ID + "= ?",
                 new String[]{String.valueOf(id)}, null, null, null);
 
@@ -74,7 +75,7 @@ public class RatingDatabase extends SQLiteOpenHelper {
     }
     public ArrayList<Rating> getAllRating(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_RATING, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_REVIEW, null);
         ArrayList<Rating> Ratings = new ArrayList<>();
         while (cursor.moveToNext()){
             Ratings.add(new Rating(
@@ -91,13 +92,13 @@ public class RatingDatabase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, Rating.getName());
         values.put(COLUMN_DESC, Rating.getDescription());
-        return db.update(TABLE_RATING, values, COLUMN_ID + "=?",
+        return db.update(TABLE_REVIEW, values, COLUMN_ID + "=?",
                 new String[]{String.valueOf(Rating.getId())});
     }
 
     public void deleteRating(int Rating){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_RATING, COLUMN_ID +  "=?",
+        db.delete(TABLE_REVIEW, COLUMN_ID +  "=?",
                 new String[]{String.valueOf(Rating)});
         db.close();
     }

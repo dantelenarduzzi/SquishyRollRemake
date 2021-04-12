@@ -33,6 +33,7 @@ public class SearchFragment extends Fragment {
                 anime.setTitles(name.getText().toString());
 
                 AnimeDatabase db = new AnimeDatabase(getContext());
+
             }
         });
         return view;
