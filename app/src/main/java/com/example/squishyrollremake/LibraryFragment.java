@@ -4,11 +4,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.squishyrollremake.Adapter.CustomLibraryAdapter;
 import com.example.squishyrollremake.Database.AnimeDatabase;
 import com.example.squishyrollremake.pojo.Anime;
 
@@ -79,9 +82,25 @@ public class LibraryFragment extends Fragment {
 
 
         ArrayList<Anime> animes = new ArrayList<>();
-        AnimeDatabase db = new AnimeDatabase(getContext());
-        db.addAnime(new Anime("Cowboy Bepop","","In the year 2071, humanity has colonoized several of the planets and moons...\n"));
-        db.close();
+    //    AnimeDatabase db = new AnimeDatabase(getContext());
+        //db.addAnime(new Anime("Cowboy bepop","In the year 2071, humanity has colonoized several of the planets and moons...\n"));
+
+        animes.add(new Anime("Cowboy bepop","In the year 2071, humanity has colonoized several of the planets and moons.."));
+        animes.add(new Anime("Cowboy bepop","In the year 2071, humanity has colonoized several of the planets and moons.."));
+        animes.add(new Anime("Cowboy bepop","In the year 2071, humanity has colonoized several of the planets and moons.."));
+        animes.add(new Anime("Cowboy bepop","In the year 2071, humanity has colonoized several of the planets and moons.."));
+
+
+
+        //   db.close();
+
+
+        RecyclerView recyclerView = view.findViewById(R.id.libraryList);
+
+        CustomLibraryAdapter adapter = new CustomLibraryAdapter(animes,getContext());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         return view;
     }
 }

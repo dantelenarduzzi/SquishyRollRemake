@@ -6,27 +6,23 @@ import android.os.Parcelable;
 
 public class Anime implements Parcelable {
     private String titles;
-    private String posterImage;
     private String synopsis;
     private int id;
 
-    public Anime(String titles, String posterImage, String synopsis){
+    public Anime(String titles, String synopsis){
         this.titles = titles;
-        this.posterImage = posterImage;
         this.synopsis = synopsis;
     }
 
 
-    public Anime(int id, String titles, String posterImage, String synopsis){
+    public Anime(int id, String titles,String synopsis){
         this.titles = titles;
-        this.posterImage = posterImage;
         this.synopsis = synopsis;
         this.id = id;
     }
 
     protected Anime(Parcel in) {
         titles = in.readString();
-        posterImage = in.readString();
         synopsis = in.readString();
         id = in.readInt();
     }
@@ -35,7 +31,6 @@ public class Anime implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(titles);
-        dest.writeString(posterImage);
         dest.writeString(synopsis);
         dest.writeInt(id);
     }
@@ -58,14 +53,6 @@ public class Anime implements Parcelable {
 
     public void setTitles(String titles) {
         this.titles = titles;
-    }
-
-    public String getPosterImage() {
-        return posterImage;
-    }
-
-    public void setPosterImage(String posterImage) {
-        this.posterImage = posterImage;
     }
 
     public String getSynopsis() {

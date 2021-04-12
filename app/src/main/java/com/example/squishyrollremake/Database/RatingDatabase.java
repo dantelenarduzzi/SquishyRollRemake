@@ -25,7 +25,7 @@ public class RatingDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_DESC = "synopsis"; // description
 
 
-    public static final String CREATE_RATING_TABLE = "CREATE TABLE " +
+    public static final String CREATE_REVIEW_TABLE = "CREATE TABLE " +
             TABLE_REVIEW + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
             COLUMN_NAME + " TEXT, " + COLUMN_DESC +" TEXT)";
 
@@ -35,7 +35,7 @@ public class RatingDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_RATING_TABLE);
+        db.execSQL(CREATE_REVIEW_TABLE);
     }
 
     @Override

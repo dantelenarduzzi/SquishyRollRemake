@@ -34,6 +34,8 @@ public class SearchFragment extends Fragment {
 
                 AnimeDatabase db = new AnimeDatabase(getContext());
 
+
+
             }
         });
         return view;

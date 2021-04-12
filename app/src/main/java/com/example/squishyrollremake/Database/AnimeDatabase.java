@@ -25,14 +25,12 @@ public class AnimeDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "id";
 
     public static final String COLUMN_TITLE = "titles"; //title
-    public static final String COLUMN_IMAGE = "posterImage"; // poster image
     public static final String COLUMN_DESC = "synopsis"; // description
 
 
     public static final String CREATE_ANIME_TABLE = "CREATE TABLE " +
             TABLE_ANIME + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
-            COLUMN_TITLE + " TEXT, " + COLUMN_DESC + " TEXT, " +
-            COLUMN_IMAGE + " TEXT)";
+            COLUMN_TITLE + " TEXT, " + COLUMN_DESC + " TEXT)";
 
     public AnimeDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -40,6 +38,7 @@ public class AnimeDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CREATE_ANIME_TABLE);
 
     }
 
@@ -53,7 +52,6 @@ public class AnimeDatabase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_TITLE, Anime.getTitles());
         values.put(COLUMN_DESC, Anime.getSynopsis());
-        values.put(COLUMN_IMAGE, Anime.getPosterImage());
         db.insert(TABLE_ANIME, null, values);
         db.close();
     }
@@ -62,7 +60,7 @@ public class AnimeDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Anime Anime = null;
         Cursor cursor = db.query(TABLE_ANIME,
-                new String[]{COLUMN_ID, COLUMN_TITLE, COLUMN_DESC, COLUMN_IMAGE}, COLUMN_ID + "= ?",
+                new String[]{COLUMN_ID, COLUMN_TITLE, COLUMN_DESC}, COLUMN_ID + "= ?",
                 new String[]{String.valueOf(id)}, null, null, null);
 
 
@@ -72,8 +70,7 @@ public class AnimeDatabase extends SQLiteOpenHelper {
             Anime = new Anime(
                     cursor.getInt(0),
                     cursor.getString(1),
-                    cursor.getString(2),
-                    cursor.getString(3)
+                    cursor.getString(2)
             );
         }
         db.close();
@@ -89,8 +86,7 @@ public class AnimeDatabase extends SQLiteOpenHelper {
             Animees.add(new Anime(
                     cursor.getInt(0),
                     cursor.getString(1),
-                    cursor.getString(2),
-                    cursor.getString(3)
+                    cursor.getString(2)
             ));
         }
         db.close();
@@ -102,7 +98,6 @@ public class AnimeDatabase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_TITLE, Anime.getTitles());
         values.put(COLUMN_DESC, Anime.getSynopsis());
-        values.put(COLUMN_IMAGE, Anime.getPosterImage());
         return db.update(TABLE_ANIME, values, COLUMN_ID + "=?",
                 new String[]{String.valueOf(Anime.getId())});
     }
