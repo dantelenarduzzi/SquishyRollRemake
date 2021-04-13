@@ -83,25 +83,20 @@ public class LibraryFragment extends Fragment {
         AnimeDatabase db = new AnimeDatabase(getContext());
         ArrayList<Anime> animes = db.getAllAnime();
         animes.add(new Anime("Attack on titan","Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly terrifying is that their taste for human flesh is not born out of hunger but what appears to be out of pleasure. To ensure their survival, the remnants of humanity began living within defensive barriers, resulting in one hundred years without a single titan encounter. However, that fragile calm is soon shattered when a colossal titan manages to breach the supposedly impregnable outer wall, reigniting the fight for survival against\n" +
-                "        the man-eating abominations.\\n\\n After witnessing a horrific personal loss at the hands of the invading creatures, Eren Yeager dedicates his life to their eradication by enlisting into the Survey Corps, an elite military unit that combats the merciless humanoids outside the protection of the walls. Based on Hajime Isayamas award-winning manga, Shingeki no Kyojin follows Eren, along with his adopted sister Mikasa Ackerman\n" +
+                "        the man-eating abominations. After witnessing a horrific personal loss at the hands of the invading creatures, Eren Yeager dedicates his life to their eradication by enlisting into the Survey Corps, an elite military unit that combats the merciless humanoids outside the protection of the walls. Based on Hajime Isayamas award-winning manga, Shingeki no Kyojin follows Eren, along with his adopted sister Mikasa Ackerman\n" +
                 "        and his childhood friend Armin Arlert, as they join the brutal war against the titans and race to discover a way of defeating them before the last walls are breached"));
         animes.add(new Anime("Dr.Stone", "Several thousand years after a mysterious phenomenon that turns all of humanity to stone, " +
-                "the extraordinarily intelligent, science-driven boy, Senku Ishigami, awakens.\\n\\nFacing a world of stone and the total collapse" +
+                "the extraordinarily intelligent, science-driven boy, Senku Ishigami, awakens. Facing a world of stone and the total collapse" +
                 " of civilization, Senku makes up his mind to use science to rebuild the world. Starting with his super strong childhood friend Taiju Oki," +
-                " who awakened at the same time, they will begin to rebuild civilization from nothing...\\n\\nDepicting two million years of scientific" +
-                " history from the Stone Age to present day, the unprecedented crafting adventure story is about to begin!\\n\\n(Source: Crunchyroll)\"," +
-                "\"description\":\"Several thousand years after a mysterious phenomenon that turns all of humanity to stone, the extraordinarily intelligent, science-driven boy, Senku Ishigami, awakens.\\n\\nFacing a world of stone and the total collapse of civilization," +
-                " Senku makes up his mind to use science to rebuild the world."));
+                " who awakened at the same time, they will begin to rebuild civilization from nothing..Depicting two million years of scientific" +
+                " history from the Stone Age to present day, the unprecedented crafting adventure story is about to begin!\"," +
+                ""));
         animes.add(new Anime("Naruto", "\"Moments prior to Naruto Uzumaki's birth, a huge demon known as the Kyuubi, " +
                 "the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the Kyuubi's" +
-                " rampage, the leader of the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto.\\nNow," +
+                " rampage, the leader of the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto.Now," +
                 " Naruto is a hyperactive and knuckle-headed ninja still living in Konohagakure. Shunned because of the Kyuubi inside him, Naruto struggles to " +
                 "find his place in the village, while his burning desire to become the Hokage of Konohagakure leads him not only to some great new friends, but also " +
-                "some deadly foes.\\n[Written by MAL Rewrite]\",\"description\":\"Moments prior to Naruto Uzumaki's birth, a huge demon known as the Kyuubi, the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, " +
-                "and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the village, the Fourth Hokage, sacrificed his life and sealed the" +
-                " monstrous beast inside the newborn Naruto.\\nNow, Naruto is a hyperactive and knuckle-headed ninja still living in Konohagakure. Shunned because of the" +
-                " Kyuubi inside him, Naruto struggles to find his place in the village, while his burning desire to become the Hokage of Konohagakure leads him not only " +
-                "to some great new friends, but also some deadly foes."));
+                "some deadly foes."));
         //  Ratings.add(new Rating("Attack on titan","Greatest TV show of all time, the manga is incredible and I can’t wait for Season 4. Eren Yeager is probably one of the
         //  greatest characters in all of anime. Isayama took a big risk with Eren’s character and it paid off. What a better way to improve upon an already
         //  flawed protagonist by pitting him against his friends. I don’t want to call Eren an antagonist either, his motives are very understandable and he
