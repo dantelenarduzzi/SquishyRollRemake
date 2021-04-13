@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.squishyrollremake.Adapter.CustomLibraryAdapter;
 import com.example.squishyrollremake.Database.AnimeDatabase;
 import com.example.squishyrollremake.pojo.Anime;
+import com.example.squishyrollremake.pojo.Rating;
 
 import java.util.ArrayList;
 
@@ -80,23 +81,14 @@ public class LibraryFragment extends Fragment {
 
         });
 
+        AnimeDatabase db = new AnimeDatabase(getContext());
+        ArrayList<Anime> animes = db.getAllAnime();
+       // animes.add(new Anime("Attack on titan","Greatest TV show of all time, the manga is incredible and I can’t wait for Season 4. Eren Yeager is probably one of the greatest characters in all of anime. Isayama took a big risk with Eren’s character and it paid off. What a better way to improve upon an already flawed protagonist by pitting him against his friends. I don’t want to call Eren an antagonist either, his motives are very understandable and he is so well written"));
+        //  Ratings.add(new Rating("Attack on titan","Greatest TV show of all time, the manga is incredible and I can’t wait for Season 4. Eren Yeager is probably one of the greatest characters in all of anime. Isayama took a big risk with Eren’s character and it paid off. What a better way to improve upon an already flawed protagonist by pitting him against his friends. I don’t want to call Eren an antagonist either, his motives are very understandable and he is so well written."));
 
-        ArrayList<Anime> animes = new ArrayList<>();
-    //    AnimeDatabase db = new AnimeDatabase(getContext());
-        //db.addAnime(new Anime("Cowboy bepop","In the year 2071, humanity has colonoized several of the planets and moons...\n"));
-
-        animes.add(new Anime("Cowboy bepop","In the year 2071, humanity has colonoized several of the planets and moons.."));
-        animes.add(new Anime("Cowboy bepop","In the year 2071, humanity has colonoized several of the planets and moons.."));
-        animes.add(new Anime("Cowboy bepop","In the year 2071, humanity has colonoized several of the planets and moons.."));
-        animes.add(new Anime("Cowboy bepop","In the year 2071, humanity has colonoized several of the planets and moons.."));
-
-
-
-        //   db.close();
-
+        db.close();
 
         RecyclerView recyclerView = view.findViewById(R.id.libraryList);
-
         CustomLibraryAdapter adapter = new CustomLibraryAdapter(animes,getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

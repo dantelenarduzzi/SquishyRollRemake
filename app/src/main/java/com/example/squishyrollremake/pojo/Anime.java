@@ -14,6 +14,7 @@ public class Anime implements Parcelable {
         this.synopsis = synopsis;
     }
 
+    //create object to read from db
 
     public Anime(int id, String titles,String synopsis){
         this.titles = titles;
@@ -28,12 +29,21 @@ public class Anime implements Parcelable {
     }
 
 
+    public Anime(){
+
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(titles);
         dest.writeString(synopsis);
         dest.writeInt(id);
     }
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
 
     public static final Creator<Anime> CREATOR = new Creator<Anime>() {
         @Override
@@ -71,9 +81,4 @@ public class Anime implements Parcelable {
         this.id = id;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
     }
-
-}

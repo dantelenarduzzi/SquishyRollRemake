@@ -12,11 +12,12 @@ public class AnimeSingleton {
     private RequestQueue requestQueue;
     private static Context context;
 
-    private AnimeSingleton(Context context){
+    private AnimeSingleton(Context context)
+    {
         this.context = context;
     }
 
-    public static AnimeSingleton getInstance() {
+    public static AnimeSingleton getInstance(Context context) {
         if(instance == null){
             instance = new AnimeSingleton(context);
         }

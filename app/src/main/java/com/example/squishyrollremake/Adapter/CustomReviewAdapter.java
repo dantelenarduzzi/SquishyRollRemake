@@ -1,14 +1,16 @@
 package com.example.squishyrollremake.Adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.squishyrollremake.Database.RatingDatabase;
 import com.example.squishyrollremake.R;
 import com.example.squishyrollremake.pojo.Rating;
 
@@ -55,6 +57,28 @@ public class CustomReviewAdapter extends RecyclerView.Adapter<CustomReviewAdapte
             this.name = itemView.findViewById(R.id.name);
             this.description = itemView.findViewById(R.id.description);
 
+        }
+
+        public boolean onLongClick(View v) {
+            new AlertDialog.Builder(context)
+                    .setTitle("Delete")
+                    .setMessage("Are you sure you want to delete" +
+                            ratings.get(getLayoutPosition()).getName() + " ?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            RatingDatabase db = new RatingDatabase(context);
+                            db.deleteRating(ratings.get(getLayoutPosition()).getId());
+                            ratings.remove(getLayoutPosition());
+                            notifyItemRemoved(getAdapterPosition());
+                            db.close();
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+            return false;
         }
     }
 }
