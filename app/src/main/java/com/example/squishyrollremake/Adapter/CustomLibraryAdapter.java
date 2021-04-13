@@ -54,6 +54,7 @@ public class CustomLibraryAdapter extends RecyclerView.Adapter<CustomLibraryAdap
         String filteredURL = nameFiltered.replace(" ", "%20");
         String url = "https://kitsu.io/api/edge/anime?filter[text]=" + filteredURL;
 
+        Log.println(Log.WARN,"test",url);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override

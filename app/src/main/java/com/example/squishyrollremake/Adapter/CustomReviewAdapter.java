@@ -47,7 +47,7 @@ public class CustomReviewAdapter extends RecyclerView.Adapter<CustomReviewAdapte
         return ratings.size();
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder{
+    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
 
         protected TextView name;
         protected TextView description;
@@ -56,6 +56,7 @@ public class CustomReviewAdapter extends RecyclerView.Adapter<CustomReviewAdapte
             super(itemView);
             this.name = itemView.findViewById(R.id.name);
             this.description = itemView.findViewById(R.id.description);
+            itemView.setOnLongClickListener(this);
 
         }
 
